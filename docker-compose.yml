@@ -1,0 +1,12 @@
+services:
+  localminidrama:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: localminidrama
+    restart: unless-stopped
+    ports:
+      - "5679:5679"
+    volumes:
+      - ./backend-node/data:/app/backend-node/data
+      - ./backend-node/configs/config.yaml:/app/backend-node/configs/config.yaml:ro
